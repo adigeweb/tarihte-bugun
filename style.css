@@ -188,8 +188,8 @@ button#paylas {
 .kutu {
     color: white;
     display: flex;
-    height: 75px;
-    width: 75px;
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     font-size: 40px;
     align-items: center;
@@ -225,6 +225,10 @@ button#paylas {
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+.container h1 {
+    font-size: 10vw;
 }
 
 @keyframes spin {

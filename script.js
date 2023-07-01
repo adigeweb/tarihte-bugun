@@ -52,7 +52,7 @@ document.querySelector("button").addEventListener("click", () => {
                         document.querySelector(".sonuc .ekBilgi").style.display = "block";
                         document.querySelector(".sonuc button#paylas").style.display = "block";
                         if (type == "births" || type == "deaths") {
-                            cevir(chosen.text.substring(chosen.text.split(", ")[0].length, chosen.text.length)).then(() => {
+                            cevir(chosen.text.substring(chosen.text.split(", ")[0].length + 2, chosen.text.length)).then(() => {
                                 document.querySelector(".sonuc .ekBilgi details .index").innerHTML = finalText;
                             });
                         }
@@ -66,6 +66,17 @@ document.querySelector("button").addEventListener("click", () => {
                     let chosen = alt[Math.floor(Math.random() * Object.keys(alt).length)];
                     cevir(chosen.text).then(() => {
                         document.querySelector(".sonuc p").innerHTML = `<b>${day} ${document.querySelector("select#ay").options[document.querySelector("select#ay").selectedIndex].text} ${chosen.year ? chosen.year : ""}</b> <br /><br /> <i>${alt == "births" || alt == "deaths" ? chosen.text.split(", ")[0] : finalText} ${cekimle(alt) ? cekimle(alt) + "." : ""}.</i>`;
+                    }).then(() => {
+                        document.querySelector(".sonuc .ekBilgi").style.display = "block";
+                        document.querySelector(".sonuc button#paylas").style.display = "block";
+                        if (type == "births" || type == "deaths") {
+                            cevir(chosen.text.substring(chosen.text.split(", ")[0].length + 2, chosen.text.length)).then(() => {
+                                document.querySelector(".sonuc .ekBilgi details .index").innerHTML = finalText;
+                            });
+                        }
+                        else {
+                            document.querySelector(".sonuc .ekBilgi details .index").innerHTML = "Ek bilgi bulunamadı.";
+                        }
                     });
                 }
             });

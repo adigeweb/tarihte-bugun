@@ -105,7 +105,7 @@ button:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     height: 500px;
-    width: 50vw;
+    width: 65vw;
     background: white;
     z-index: 999;
     border-radius: 10px;

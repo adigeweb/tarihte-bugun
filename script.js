@@ -98,7 +98,7 @@ document.querySelector(".katki .kapat").addEventListener("click", () => {
 var d = new Date();
 
 document.querySelector("select#ay").childNodes[2 * d.getUTCMonth() + 1].selected = true;
-document.querySelector("select#gun").childNodes[2 * d.getUTCDate()].selected = true;
+document.querySelector("select#gun").options[d.getUTCDate() + 1].selected = true;
 
 document.querySelector(".sonuc button#paylas").addEventListener("click", () => {
     document.querySelector(".paylasma").style.display = "block";

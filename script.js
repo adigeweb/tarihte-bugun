@@ -10,6 +10,18 @@ const cekimle = (str) => {
 
 var finalText;
 
+if ([1, 3, 5, 7, 8, 10, 12].includes(new Date().getUTCMonth + 1)) {
+    document.querySelector("option[value='31']").hidden = false;
+}
+else document.querySelector("option[value='31']").hidden = true;
+
+document.querySelector("select#ay").addEventListener("change", () => {
+    if ([1, 3, 5, 7, 8, 10, 12].includes(document.querySelector("select#ay").value)) {
+        document.querySelector("option[value='31']").hidden = false;
+    }
+    else document.querySelector("option[value='31']").hidden = true;
+});
+
 const cevir = (str) => {
     return fetch(`https://api.mymemory.translated.net/get?q=${str}&langpair=en|tr`)
         .then(res => { return res.json() })
@@ -29,7 +41,7 @@ const yukle = (filename, text) => {
     element.click();
   
     document.body.removeChild(element);
-  }
+}
 
 document.querySelector("button").addEventListener("click", () => {
     let month = document.querySelector("select#ay").value;
